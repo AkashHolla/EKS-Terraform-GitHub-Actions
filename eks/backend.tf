@@ -7,14 +7,14 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "dev-aman-tf-bucket"
+    bucket         = "akash-eks-tfstate"     # your new bucket
     region         = "us-east-1"
     key            = "eks/terraform.tfstate"
-    dynamodb_table = "Lock-Files"
+    dynamodb_table = "eks-lock-table"        # your new DynamoDB table
     encrypt        = true
   }
 }
 
 provider "aws" {
-  region = var.aws-region
+  region = "us-east-1"
 }
