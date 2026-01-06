@@ -42,7 +42,7 @@ resource "aws_iam_role" "eks_nodegroup_role" {
   }]
 })
 }
-resource "aws_iam_role_policy_attachment    " "AmazonEKSWorkerNodePolicy" {
+resource "aws_iam_role_policy_attachment" "AmazonEKSWorkerNodePolicy" {
   count = var.is_eks_nodegroup_enabled?1:0
   role=aws_iam_role.eks_nodegroup_role[count.index].name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
