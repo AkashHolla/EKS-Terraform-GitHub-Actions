@@ -11,7 +11,7 @@ terraform {
     bucket = "akash_hola_tf_bucket"
     key    = "eks.terraform.tfstate"
     region = "us_east_1"
-    dynamodynamodb_table = "Lock_files"
+    dynamodb_table = "Lock_files"
     encrypt=true
   }
 }
