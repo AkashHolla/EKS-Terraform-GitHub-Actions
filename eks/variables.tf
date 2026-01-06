@@ -30,9 +30,8 @@ variable "cluster_version" { }
 variable "cluster_name" {}
 variable "endpoint_private_access" { }
 variable "endpoint_public_access" { }
-variable "endpoint_public_access" { }
 variable "ondemand_instance_type" {
-  default = [t3a.medium]
+  default = ["t3a.medium"]
 }
 variable "desired_capacity_ondemand" {}
 variable "min_capacity_ondemand" {}
