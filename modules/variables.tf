@@ -6,7 +6,6 @@ variable "endpoint-private-access" { }
 variable "cidr_block" { }
 variable "vpc-name" { }
 variable "env" { }
-variable "vpc-id" { }
 variable "igw-name" { }
 variable "pub-subnet-count" { }
 variable "pub-cidr-block" { }
@@ -26,7 +25,6 @@ variable "addon" { }
 variable "max_capacity_on_demand" { }
 variable "min_capacity_on_demand" { }
 variable "desired_capacity_on_demand" { }
-variable "ondemand__instance_type" { }
 variable "desired_capacity_spot_node" { }
 variable "min_capacity_spot_node" { }
 variable "max_capacity_spot_node" { }
