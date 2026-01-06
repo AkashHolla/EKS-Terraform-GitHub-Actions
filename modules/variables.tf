@@ -30,3 +30,5 @@ variable "ondemand__instance_type" { }
 variable "desired_capacity_spot_node" { }
 variable "min_capacity_spot_node" { }
 variable "max_capacity_spot_node" { }
+variable "spot_instance_type" { }
+variable "ondemand_instance_type" { }
