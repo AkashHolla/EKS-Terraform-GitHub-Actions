@@ -8,13 +8,13 @@ terraform {
   }
  
   backend "s3" {
-    bucket = "akash-hola-tf-bucket"
+    bucket = "akash_hola_tf_bucket"
     key    = "eks.terraform.tfstate"
-    region = "us-east-1"
-    dynamodynamodb_table = "Lock-files"
+    region = "us_east_1"
+    dynamodynamodb_table = "Lock_files"
     encrypt=true
   }
 }
   provider "aws" {
-  region = var.aws-region
+  region = var.aws_region
 }

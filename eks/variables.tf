@@ -1,46 +1,46 @@
-variable "aws-region" {  }
+variable "aws_region" {  }
 variable "env" {  }
-variable "vpc-name" {  }
-variable "vpc-cidr-block" {  }
-variable "igw-name" {  }
-variable "pub-subnet-count" {  }
-variable "pub-cidr-block" {
+variable "vpc_name" {  }
+variable "vpc_cidr_block" {  }
+variable "igw_name" {  }
+variable "pub_subnet_count" {  }
+variable "pub_cidr_block" {
     type = list(string)
 } 
-variable "pub-availability-zone" {
+variable "pub_availability_zone" {
     type = list(string)
 } 
-variable "pub-sub-name" {}  
-variable "pri-subnet-count" {  }
-variable "pri-cidr-block" {
+variable "pub_sub_name" {}  
+variable "pri_subnet_count" {  }
+variable "pri_cidr_block" {
     type = list(string)
 } 
-variable "pri-availability-zone" {
+variable "pri_availability_zone" {
     type = list(string)
 } 
-variable "pri-sub-name" {}  
-variable "public-rt-name" {}  
-variable "private-rt-name" {}  
-variable "eip-name" {}  
-variable "ngw-name" {}  
-variable "eks-sg" {}  
+variable "pri_sub_name" {}  
+variable "public_rt_name" {}  
+variable "private_rt_name" {}  
+variable "eip_name" {}  
+variable "ngw_name" {}  
+variable "eks_sg" {}  
 
-variable "is-eks-cluster-enabled" { }
-variable "cluster-version" { }
-variable "cluster-name" {}
-variable "endpoint-private-access" { }
-variable "endpoint-public-access" { }
-variable "endpoint-public-access" { }
-variable "ondemand-instance-type" {
+variable "is_eks_cluster_enabled" { }
+variable "cluster_version" { }
+variable "cluster_name" {}
+variable "endpoint_private_access" { }
+variable "endpoint_public_access" { }
+variable "endpoint_public_access" { }
+variable "ondemand_instance_type" {
   default = [t3a.medium]
 }
-variable "desired-capacity-ondemand" {}
-variable "min-capacity-ondemand" {}
-variable "max-capacity-ondemand" {}
-variable "spot-instance-type" {}
-variable "desired-capacity-spot" {}
-variable "min-capacity-spot" {}
-variable "max-capacity-spot" {}
+variable "desired_capacity_ondemand" {}
+variable "min_capacity_ondemand" {}
+variable "max_capacity_ondemand" {}
+variable "spot_instance_type" {}
+variable "desired_capacity_spot" {}
+variable "min_capacity_spot" {}
+variable "max_capacity_spot" {}
 variable "addons" {
   type = list(object({
     name=string
