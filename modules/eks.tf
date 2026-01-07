@@ -35,7 +35,7 @@ resource "aws_eks_addon" "eks_addons" {
   depends_on = [ aws_eks_node_group.ondemand_node,aws_eks_node_group.spot_node ]
   
 }
-resource "aws_eks_node_group" "ondemand-node" {
+resource "aws_eks_node_group" "ondemand_node" {
  cluster_name = aws_eks_cluster.eks[0].name
  node_group_name = "${var.cluster-name}-ondemand-nodes"
  node_role_arn = aws_iam_role.eks_nodegroup_role[0].arn
@@ -63,7 +63,7 @@ tags_all = {
 }
 depends_on = [ aws_eks_cluster.eks ]
 }
-resource "aws_eks_node_group" "spot-node" {
+resource "aws_eks_node_group" "spot_node" {
   cluster_name = var.cluster-name[0].name
   node_group_name = "${var.cluster-name}-spot-node"
  node_role_arn = aws_iam_role.eks_nodegroup_role[0].arn
