@@ -27,7 +27,7 @@ variable "eks-sg" {}
 
 variable "is-eks-cluster-enabled" { }
 variable "cluster-version" { }
-variable "cluster-name" {}
+variable "cluster_name" {}
 variable "endpoint-private-access" { }
 variable "endpoint-public-access" { }
 variable "ondemand-instance-type" {

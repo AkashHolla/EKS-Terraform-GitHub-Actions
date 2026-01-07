@@ -19,7 +19,7 @@ eks-sg = "eks-sg"
 
 is-eks-cluster-enabled = true
 cluster-version = "1.33"
-cluster-name ="eks-cluster"
+cluster_name ="eks-cluster"
 endpoint-public-access = false
 endpoint-private-access = true
 ondemand-instance-type = ["t3a.medium"]

@@ -1,5 +1,5 @@
 variable is-eks-cluster-enabled{}
-variable "cluster-name" { }
+variable "cluster_name" { }
 variable "cluster-version" { }
 variable "endpoint-public-access" { }
 variable "endpoint-private-access" { }
