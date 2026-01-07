@@ -30,7 +30,7 @@ max-capacity-spot = "10"
 desired-capacity-ondemand = "1"
 min-capacity-ondemand = "1"
 max-capacity-ondemand = "5"
-addon = [ {
+addons = [ {
   name = "vpc-cni",
   version = "v1.20.0-eksbuild.1"
 },
