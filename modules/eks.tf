@@ -32,7 +32,7 @@ resource "aws_eks_addon" "eks_addons" {
   addon_name = each.value.Name
   addon_version = each.value.version
 
-  depends_on = [ aws_ek_node_group.ondemand_node,aws_eks_node_group.spot_node ]
+  depends_on = [ aws_eks_node_group.ondemand_node,aws_eks_node_group.spot_node ]
   
 }
 resource "aws_eks_node_group" "ondemand-node" {
