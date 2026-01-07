@@ -28,8 +28,8 @@ resource "aws_iam_openid_connect_provider" "eks_oidc" {
 }
 
 resource "aws_eks_addon" "eks_addons" {
-  for_each = {for idx,addon in var.addon: idx=>addon}
-  cluster_name = aws_eks_cluster.eks[0].name
+  for_each = {for idx,addon in var.addon: addon.name=>addon}
+  cluster_name = var.cluster_name
   addon_name = each.value.Name
   addon_version = each.value.version
 
