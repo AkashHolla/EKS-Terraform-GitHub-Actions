@@ -65,7 +65,7 @@ tags_all = {
 depends_on = [ aws_eks_cluster.eks ]
 }
 resource "aws_eks_node_group" "spot_node" {
-  cluster_name = var.cluster_name.name
+  cluster_name = var.cluster_name
   node_group_name = "${var.cluster_name}-spot-node"
  node_role_arn = aws_iam_role.eks_nodegroup_role[0].arn
 
