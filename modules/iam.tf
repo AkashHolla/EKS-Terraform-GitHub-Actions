@@ -65,16 +65,23 @@ resource "aws_iam_role" "eks_oidc" {
     name = "eks-oidc"
 }
 resource "aws_iam_policy" "eks_oidc_policy" {
-    name = "test-policy"
-    policy = jsonencode({
-        Statement=[{
-        Action=["s3:ListAllMyBuckets","s3:GetBucketLocation"]
-        Effect="Allow"
-        Resource="*"
-        }]
-        Version="2012-10-07"
-    })
+  name = "test-policy"
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect   = "Allow"
+        Action   = [
+          "s3:ListAllMyBuckets",
+          "s3:GetBucketLocation"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
 }
+
 resource "aws_iam_role_policy_attachment" "eks_oidc_policy_attach" {
   role       = aws_iam_role.eks_oidc.name
   policy_arn = aws_iam_policy.eks_oidc_policy.arn
