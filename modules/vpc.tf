@@ -102,14 +102,7 @@ resource "aws_route_table" "private_rt" {
     }
     depends_on = [ aws_vpc.vpc ]
 }
-resource "aws_route_table_association" "pri-rt-association" {
-    route_table_id = aws_route_table.private_rt.id
-    count = 3
-    subnet_id = aws_subnet.public-subnet[count.index].id 
 
-    depends_on = [ aws_vpc.vpc,aws_subnet.private-subnet ]
-  
-}
 resource "aws_security_group" "eks_cluster_sg" {
   name = var.eks-sg
   description = "Allow 443 from jump server"
