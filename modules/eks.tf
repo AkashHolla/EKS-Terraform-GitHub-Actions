@@ -23,7 +23,7 @@ tags = {
 resource "aws_iam_openid_connect_provider" "eks-oidc" {
   client_id_list = ["sts.amazonaws.com"]
   thumbprint_list = [data.aws_iam_policy_document.eks_oidc_assume_role_policy]
-  url = data.tls_certificate.eks-certificate.url
+  url = data.tls.eks-certificate.url
   
 }
 resource "aws_eks_addon" "eks_addons" {
