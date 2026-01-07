@@ -55,9 +55,9 @@ resource "aws_subnet" "private-subnet" {
   }
 }
 
-resource "aws_route_table" "public-rt" {
+resource "aws_route_table" "public_rt" {
     vpc_id = aws_vpc.vpc.id
-    route = {
+    route {
         cidr_block="0.0.0.0/0"
         gateway_id = aws_internet_gateway.igw.id 
     }
@@ -94,7 +94,7 @@ resource "aws_nat_gateway" "ngw" {
 }
 resource "aws_route_table" "private_rt" {
     vpc_id = aws_vpc.vpc.id
-    route = {
+    route  {
         cidr_block="0.0.0.0/0"
         nat_gateway_id= aws_nat_gateway.ngw.id  
     }
@@ -117,7 +117,7 @@ resource "aws_security_group" "eks_cluster_sg" {
   description = "Allow 443 from jump server"
   vpc_id = aws_vpc.vpc.id
 
-  ingress = {
+  ingress {
     from_port=443
     to_port=443
     protocol="tcp"

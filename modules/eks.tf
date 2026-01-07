@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "eks" {
-role_arn = aws_iam_role.eks-cluster-role[count.index].arn
+role_arn = aws_iam_role.eks-cluster_role[count.index].arn
 count = var.is-eks-cluster-enabled ==true?1:0
 name = var.cluster-name
 version = var.cluster-version
@@ -8,7 +8,7 @@ vpc_config {
   subnet_ids = [aws_subnet.private-subnet[0].id,aws_subnet.private-subnet[1].id,aws_subnet.private-subnet[2].id]
   endpoint_private_access = var.endpoint-private-access
   endpoint_public_access = var.endpoint-public-access
-  security_group_ids = [aws_security_group.eks-cluster-sg.id]
+  security_group_ids = [aws_security_group.eks_cluster_sg.id]
 
 }
 access_config {

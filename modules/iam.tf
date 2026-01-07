@@ -23,7 +23,7 @@ resource "aws_iam_role" "eks_cluster_role" {
 }
 resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
   count      = var.is-eks-cluster-enabled ? 1 : 0
-  role       = aws_iam_role.eks-cluster-role[count.index].name
+  role       = aws_iam_role.eks_cluster_role[count.index].name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 resource "aws_iam_role" "eks_nodegroup_role" {
@@ -42,23 +42,23 @@ resource "aws_iam_role" "eks_nodegroup_role" {
 }
 resource "aws_iam_role_policy_attachment" "AmazonEKSWorkerNodePolicy" {
   count = var.is-eks-nodegroup-enabled?1:0
-  role=aws_iam_role.eks-nodegroup-role[count.index].name
+  role=aws_iam_role.eks_nodegroup_role[count.index].name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 resource "aws_iam_role_policy_attachment" "eks_AmazonEKS_CNI_Policy" {
     count = var.is-eks-nodegroup-enabled?1:0
     policy_arn =  "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
-    role = aws_iam_role.eks-nodegroup-role[count.index].name
+    role = aws_iam_role.eks_nodegroup_role[count.index].name
 }
 resource "aws_iam_role_policy_attachment" "eks_AmazonEC2ContainerRegistryReadOnly" {
     count = var.is-eks-nodegroup-enabled?1:0
     policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-    role = aws_iam_role.eks-nodegroup-role[count.index].name
+    role = aws_iam_role.eks_nodegroup_role[count.index].name
 }
 resource "aws_iam_role_policy_attachment" "eks_AmazonEBSCSIDriverPolicy" {
     count = var.is-eks-nodegroup-enabled?1:0
     policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
-    role = aws_iam_role.eks-nodegroup-role[count.index].name
+    role = aws_iam_role.eks_nodegroup_role[count.index].name
 }
 resource "aws_iam_role" "eks_oidc" {
     assume_role_policy = data.aws_iam_policy_document.eks_oidc_assume_role_policy.json
