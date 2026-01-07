@@ -46,7 +46,7 @@ scaling_config {
   min_size = var.min_capacity_on_demand
   desired_size = var.desired_capacity_on_demand
 }
-subnet_ids = [aws_subnet.private-subnet[0].id,aws_subnet.private-subnet[1].id,aws_subnet.private-subnet[2].id]
+subnet_ids = [aws_subnet.private-subnet[0].id]
 instance_types = var.ondemand_instance_type
 capacity_type = "ON_DEMAND"
 labels = {
@@ -74,7 +74,7 @@ resource "aws_eks_node_group" "spot_node" {
     max_size = var.max_capacity_spot_node
     min_size = var.min_capacity_spot_node
   }
-  subnet_ids = [aws_subnet.private-subnet[0].id,aws_subnet.private-subnet[1].id,aws_subnet.private-subnet[2].id]
+  subnet_ids = [aws_subnet.private-subnet[0].id]
   instance_types = var.spot_instance_type
   capacity_type = "SPOT"
 
