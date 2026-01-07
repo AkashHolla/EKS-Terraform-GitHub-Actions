@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "eks" {
-role_arn = aws_iam_role.eks-cluster_role[count.index].arn
+role_arn = aws_iam_role.eks_cluster_role[count.index].arn
 count = var.is-eks-cluster-enabled ==true?1:0
 name = var.cluster-name
 version = var.cluster-version
