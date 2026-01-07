@@ -23,7 +23,7 @@ tags = {
 resource "aws_iam_openid_connect_provider" "eks-oidc" {
   client_id_list = ["sts.amazonaws.com"]
   thumbprint_list = [data.aws_iam_policy_document.eks_oidc_assume_role_policy]
-  url = data.tls_certificate.eks-certificate.url
+  url = data.tls_certificate.eks_certificate.url
   
 }
 resource "aws_eks_addon" "eks_addons" {
@@ -47,7 +47,7 @@ scaling_config {
 }
 subnet_ids = [aws_subnet.private-subnet[0].id,aws_subnet.private-subnet[1].id,aws_subnet.private-subnet[2].id]
 instance_types = var.ondemand_instance_type
-capacity_type = "ONDEMAND"
+capacity_type = "ON_DEMAND"
 labels = {
   type="ondemand"
 }
@@ -66,7 +66,7 @@ depends_on = [ aws_eks_cluster.eks ]
 resource "aws_eks_node_group" "spot-node" {
   cluster_name = var.cluster-name[0].name
   node_group_name = "${var.cluster-name}-spot-node"
-  node_role_arn = aws_iam_role.eks_nodegroup_role.arn
+ node_role_arn = aws_iam_role.eks_nodegroup_role[0].arn
 
   scaling_config {
     desired_size = var.desired_capacity_spot_node

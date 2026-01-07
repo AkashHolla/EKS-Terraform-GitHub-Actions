@@ -77,7 +77,7 @@ resource "aws_iam_policy" "eks_oidc_policy" {
 }
 resource "aws_iam_role_policy_attachment" "eks_oidc_policy_attach" {
   role       = aws_iam_role.eks_oidc.name
-  policy_arn = aws_iam_policy.eks-oidc-policy.arn
+  policy_arn = aws_iam_policy.eks_oidc_policy.arn
 }
 data "tls_certificate" "eks" {
   url =aws_eks_cluster.eks[0].identity[0].oidc[0].issuer
