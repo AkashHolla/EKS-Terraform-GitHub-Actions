@@ -8,7 +8,7 @@ terraform {
   }
  
   backend "s3" {
-    bucket = "akash-holla-tf-bucket"
+    bucket = "dev-akash-tf-bucket"
     key    = "eks.terraform.tfstate"
     region = "us-east-1"
     dynamodb_table = "Lock-files"
