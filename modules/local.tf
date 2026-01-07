@@ -1,4 +1,4 @@
 locals {
-  cluster-name = var.cluster_name
+  cluster_name = var.cluster_name
   env          = var.env
 }
