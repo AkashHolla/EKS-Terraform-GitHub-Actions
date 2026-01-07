@@ -48,7 +48,7 @@ resource "aws_subnet" "private-subnet" {
   tags = {
     Name="${var.pri-sub-name}-${count.index+1}"
     env=var.env
-    "kubernetes.io/cluster/${local.cluster-name}"="owned"
+    "kubernetes.io/cluster/${local.cluster_name}"="owned"
     "kubernetes.io/role/elb"="1"
   }
 }
