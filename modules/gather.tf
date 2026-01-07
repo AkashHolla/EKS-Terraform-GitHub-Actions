@@ -1,4 +1,4 @@
-data "tls" "eks_certificate" {
+data "tls_certificate" "eks_certificate" {
     url= aws_eks_cluster.eks[0].identity[0].oidc[0].issuer 
 }
 
