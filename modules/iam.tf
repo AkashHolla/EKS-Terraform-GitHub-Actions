@@ -92,6 +92,7 @@ data "tls_certificate" "eks" {
 }
 
 resource "aws_iam_role_policy_attachment" "eks_AmazonSSMManagedInstanceCore" {
+   count = var.is-eks-nodegroup-enabled?1:0
   role       = aws_iam_role.eks_nodegroup_role[count.index].name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
