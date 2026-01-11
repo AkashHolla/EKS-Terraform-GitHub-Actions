@@ -69,7 +69,7 @@ resource "aws_route_table" "public_rt" {
 resource "aws_route_table_association" "pub_rt_association" {
    route_table_id = aws_route_table.public_rt.id 
    count = 3    
-   subnet_id = aws_subnet.public_subnet.id
+   subnet_id = aws_subnet.public_subnet[count.index].id
 
    depends_on = [ aws_subnet.public_subnet,aws_vpc.vpc ]
   
