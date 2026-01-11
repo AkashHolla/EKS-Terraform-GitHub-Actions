@@ -40,7 +40,7 @@ variable "max_capacity_on_demand" {}
 variable "desired_capacity_spot_node" {}
 variable "min_capacity_spot_node" {}
 variable "max_capacity_spot_node" {}
-variable "addon" {
+variable "addons" {
   type = list(object({
     name=string
     version=string

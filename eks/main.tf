@@ -40,5 +40,5 @@ module "eks" {
   cluster_version = var.cluster_version
   endpoint_private_access = var.endpoint_private_access
   endpoint_public_access = var.endpoint_public_access
-  addons = var.addon
+  addons = var.addons
 }
