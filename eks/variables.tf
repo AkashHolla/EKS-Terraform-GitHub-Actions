@@ -45,4 +45,5 @@ variable "addon" {
     name=string
     version=string
   }))
+  default = [ ]
 }
