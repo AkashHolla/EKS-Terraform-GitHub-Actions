@@ -7,7 +7,7 @@ resource "random_integer" "random_suffix" {
 }
 resource "aws_iam_role" "eks_cluster_role" {
     count = var.is_eks_enabled?1:0
-    name = "${local.cluster_name}-role-${random_integer.random_suffix}"
+    name = "${local.cluster_name}-role-${random_integer.random_suffix.result}"
     assume_role_policy = jsonencode({
           Version = "2012-10-17"
     Statement = [{
@@ -26,7 +26,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
 }
 resource "aws_iam_role" "eks_nodegroup_role" {
     count = var.is_eks_enabled?1:0
-    name = "${local.cluster_name}-nodegroup-role-${random_integer.random_suffix}"
+    name = "${local.cluster_name}-nodegroup-role-${random_integer.random_suffix.result}"
   assume_role_policy = jsonencode({
      Version = "2012-10-17"
     Statement = [{
