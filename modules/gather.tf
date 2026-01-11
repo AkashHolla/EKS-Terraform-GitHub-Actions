@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "eks_oidc_assume_role_policy" {
       }
 
     principals {
-      identifiers = [aws_iam_openid_connect_provider.eks_oidc_]
+      identifiers = [aws_iam_openid_connect_provider.eks_oidc_.arn]
       type        = "Federated"
     }
 }
