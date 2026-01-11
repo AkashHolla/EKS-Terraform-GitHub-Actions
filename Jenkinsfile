@@ -19,7 +19,7 @@ pipeline {
         }
         stage('init'){
             steps{
-                withAWS(credentials:'aws-creds',region:'us-east-1'){sh 'terraform -chdir=eks init'}
+                withAWS(credentials:'aws-creds',region:'us-east-1'){sh 'terraform -chdir=eks init -migrate-state -reconfigure'}
             }
         }
         stage('validate'){
