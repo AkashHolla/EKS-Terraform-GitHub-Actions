@@ -31,7 +31,7 @@ variable "cluster_version" {}
 variable "endpoint_private_access" {}
 variable "endpoint_public_access" {}
 variable "ondemand_instance_types" {
-    default = [t3.micro]
+    default = ["t3.micro"]
 }
 variable "spot_instance_types" {}
 variable "desired_capacity_on_demand" {}
