@@ -32,7 +32,7 @@ max_capacity_on_demand = "5"
 desired_capacity_spot_node = "1"
 min_capacity_spot_node = "1"
 max_capacity_spot_node = "10"
-addon = [ {
+addon = [ 
   {
     name = "vpc-cni"
     version = "v1.20.0-eksbuild.1"
@@ -49,4 +49,4 @@ addon = [ {
      name    = "aws-ebs-csi-driver"
     version = "v1.46.0-eksbuild.1"
   }
-} ]
+]
