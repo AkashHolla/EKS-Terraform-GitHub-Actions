@@ -23,7 +23,7 @@ resource "aws_eks_cluster" "eks" {
 resource "aws_iam_openid_connect_provider" "eks_oidc_" {
     url = data.tls_certificate.eks_certificate
     client_id_list = ["sts.amazonaws.com"]
-    thumbprint_list = [data.tls_certificate.eks-certificate.certificates[0].sha1_fingerprint]
+    thumbprint_list = [data.tls_certificate.eks_certificate.certificates[0].sha1_fingerprint]
 }
 resource "aws_eks_addon" "eks_addon" {
     for_each = { for idx, addon in var.addons : idx => addon }
@@ -34,9 +34,9 @@ resource "aws_eks_addon" "eks_addon" {
     depends_on = [ aws_eks_node_group.ondemand_node,aws_eks_node_group.spot_node ]
 }
 resource "aws_eks_node_group" "ondemand_node" {
-    cluster_name = aws_eks_cluster.eks[count.index].name
+    cluster_name = aws_eks_cluster.eks[0].name
     node_group_name = "${var.cluster_name}-ondemand-nodes"
-    node_role_arn = aws_iam_role.eks_nodegroup_role[count.index].arn
+    node_role_arn = aws_iam_role.eks_nodegroup_role[0].arn
     scaling_config {
       min_size = var.min_capacity_on_demand
       max_size = var.max_capacity_on_demand
@@ -62,9 +62,9 @@ resource "aws_eks_node_group" "ondemand_node" {
 }
 
 resource "aws_eks_node_group" "spot_node" {
-    cluster_name = aws_eks_cluster.eks[count.index].name
+    cluster_name = aws_eks_cluster.eks[0].name
     node_group_name = "${var.cluster_name}-spot-nodes"
-    node_role_arn = aws_iam_role.eks_nodegroup_role[count.index].arn
+    node_role_arn = aws_iam_role.eks_nodegroup_role[0].arn
 
     scaling_config {
       min_size = var.min_capacity_spot_node
