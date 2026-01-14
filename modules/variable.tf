@@ -40,12 +40,12 @@ variable "cluster_version" { type = string }
 
 variable "ondemand_instance_types" {
   type    = list(string)
-  default = ["t3.micro"]
+  default = ["t3.medium"]
 }
 
 variable "spot_instance_types" {
   type    = list(string)
-  default = ["t3.micro"]
+  default = ["t3.medium"]
 }
 
 variable "desired_capacity_on_demand" { type = number }
