@@ -26,7 +26,7 @@ eks_sg          = "dev-ap-medium-eks-sg"
 
 is_eks_enabled = true
 endpoint_private_access = true
-endpoint_public_access  = false
+endpoint_public_access  = true
 
 ondemand_instance_types = ["t3.medium"]
 spot_instance_types     = ["t3.medium"]
