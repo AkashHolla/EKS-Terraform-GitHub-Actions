@@ -1,5 +1,5 @@
 locals {
-  cluster_name = var.cluster_name
+  cluster-name = var.cluster_name
 }
 
 resource "aws_vpc" "vpc" {
@@ -19,7 +19,7 @@ resource "aws_internet_gateway" "igw" {
   tags = {
     Name = var.igw_name
     env  = var.env
-    "kubernetes.io/cluster/${local.cluster_name}" = "owned"
+    "kubernetes.io/cluster/${local.cluster-name}" = "owned"
   }
 }
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "public_subnet" {
   tags = {
     Name                                    = "${var.pub_sub_name}-${count.index + 1}"
     env                                     = var.env
-    "kubernetes.io/cluster/${local.cluster_name}" = "owned"
+    "kubernetes.io/cluster/${local.cluster-name}" = "owned"
     "kubernetes.io/role/elb"                = "1"
   }
 }
@@ -48,7 +48,7 @@ resource "aws_subnet" "private_subnet" {
   tags = {
     Name                                           = "${var.pri_sub_name}-${count.index + 1}"
     env                                            = var.env
-    "kubernetes.io/cluster/${local.cluster_name}"  = "owned"
+    "kubernetes.io/cluster/${local.cluster-name}"  = "owned"
     "kubernetes.io/role/internal-elb"              = "1"
   }
 }

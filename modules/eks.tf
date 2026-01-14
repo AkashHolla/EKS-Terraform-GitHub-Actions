@@ -1,6 +1,3 @@
-data "tls_certificate" "eks_certificate" {
-  url = aws_eks_cluster.eks[0].identity[0].oidc[0].issuer
-}
 
 resource "aws_eks_cluster" "eks" {
   count = var.is_eks_enabled ? 1 : 0
