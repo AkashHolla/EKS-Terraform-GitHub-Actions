@@ -25,8 +25,8 @@ resource "aws_eks_cluster" "eks" {
 }
 
 resource "aws_iam_openid_connect_provider" "eks_oidc" {
-  url = data.tls_certificate.eks_certificate.url
-  client_id_list = ["sts.amazonaws.com"]
+  url = data.tls_certificate.eks_certificate.url  
+  client_id_list = ["sts.amazonaws.com"]  
   thumbprint_list = [data.tls_certificate.eks_certificate.certificates[0].sha1_fingerprint]
 }
 
@@ -83,7 +83,7 @@ resource "aws_eks_node_group" "spot_node" {
 }
 
 resource "aws_eks_addon" "addons" {
-  for_each     = { for idx in var.addons : idx => addons }
+  for_each     = { for idx, addon in var.addons : idx => addon }
   cluster_name = aws_eks_cluster.eks[0].name
   addon_name   = each.value.name
   addon_version = each.value.version
