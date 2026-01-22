@@ -24,7 +24,7 @@ cluster-name               = "eks-cluster"
 endpoint-private-access    = true
 endpoint-public-access     = false
 ondemand_instance_types    = ["t3.micro"]
-spot_instance_types        = instance_types = [
+spot_instance_types        = [
   "t3.micro",
   "t3a.micro",
   "t2.micro"
