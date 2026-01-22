@@ -25,9 +25,12 @@ endpoint-private-access    = true
 endpoint-public-access     = false
 ondemand_instance_types    = ["t3.micro"]
 spot_instance_types        = [
-  "t3.micro",
+   "t3.micro",
   "t3a.micro",
-  "t2.micro"
+  "t2.micro",
+  "t3.small",
+  "t3.medium",
+  "t3a.medium"
 ]
 desired_capacity_on_demand = "1"
 min_capacity_on_demand     = "1"
