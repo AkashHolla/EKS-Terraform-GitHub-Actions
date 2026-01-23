@@ -33,7 +33,7 @@ variable "cluster-version" {}
 variable "endpoint-private-access" {}
 variable "endpoint-public-access" {}
 variable "ondemand_instance_types" {
-  default = ["t3.micro"]
+  default = ["t3a.medium"]
 }
 
 variable "spot_instance_types" {}
